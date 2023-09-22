@@ -16,6 +16,8 @@
     font-family: 'Roboto';
     width: 30%;
     margin-left: 20px;
+    text-decoration: none;
+    color: black;
   }
 }
 
