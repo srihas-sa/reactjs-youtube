@@ -7,7 +7,10 @@ import {FaHotjar, FaSave} from 'react-icons/fa'
 import {SiYoutubegaming} from 'react-icons/si'
 import {BsPlusSquare, BsDashSquare} from 'react-icons/bs'
 import {BiListPlus} from 'react-icons/bi'
+import {connect} from 'react-redux'
+import {add} from '../../store/savedvideoSlice'
 import Header from '../Header'
+
 import './index.css'
 
 const apiStatusConstants = {
@@ -110,6 +113,14 @@ class VideoItemDetails extends Component {
     this.setState({onclickdislikebutton: !onclickdislikebutton})
   }
 
+  addtovideo = () => {
+    // Dispatch a Add Action
+    const {videodata} = this.state
+    const {dispatch} = this.props
+    console.log(videodata)
+    dispatch(add(videodata))
+  }
+
   renderProductDetailsView = () => {
     const {videodata, onclicklikebutton, onclickdislikebutton} = this.state
     const {
@@ -161,8 +172,12 @@ class VideoItemDetails extends Component {
               <h4 className="centers1234556">Dislike</h4>
             </div>
             <div className="centers123">
-              <BiListPlus className="centers12345" size={30} />
-              <h4 className="centers1234556">Like</h4>
+              <BiListPlus
+                className="centers12345"
+                size={30}
+                onClick={this.addtovideo}
+              />
+              <h4 className="centers1234556">Save</h4>
             </div>
           </div>
         </div>
@@ -251,4 +266,4 @@ class VideoItemDetails extends Component {
   }
 }
 
-export default VideoItemDetails
+export default connect()(VideoItemDetails)
