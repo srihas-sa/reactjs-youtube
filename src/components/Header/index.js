@@ -1,14 +1,22 @@
+import {useState} from 'react'
 import {Link, withRouter} from 'react-router-dom'
 import Cookies from 'js-cookie'
+import {connect} from 'react-redux'
 import {FaHotjar, FaSave, FaMoon} from 'react-icons/fa'
 import {SiYoutubegaming} from 'react-icons/si'
+import Popup from '../Popup'
+import Overlay from '../Overlay'
 import './index.css'
 
 const Header = props => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false)
+
   const onClickLogout = () => {
-    const {history} = props
-    Cookies.remove('jwt_token')
-    history.replace('/login')
+    setIsPopupOpen(true)
+  }
+
+  const closePopup = () => {
+    setIsPopupOpen(false)
   }
 
   return (
@@ -62,6 +70,13 @@ const Header = props => {
           >
             Logout
           </button>
+          {isPopupOpen && (
+            <Popup
+              title="Sample Popup"
+              message="This is a sample popup in React.js."
+              onClose={closePopup}
+            />
+          )}
         </div>
       </div>
       <div className="nav-menu-mobile">
@@ -99,4 +114,4 @@ const Header = props => {
   )
 }
 
-export default withRouter(Header)
+export default connect()(Header)

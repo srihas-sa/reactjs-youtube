@@ -26,6 +26,7 @@ class VideoItemDetails extends Component {
     apiStatus: apiStatusConstants.initial,
     onclicklikebutton: false,
     onclickdislikebutton: false,
+    onclicksavebutton: false,
   }
 
   componentDidMount() {
@@ -115,14 +116,20 @@ class VideoItemDetails extends Component {
 
   addtovideo = () => {
     // Dispatch a Add Action
-    const {videodata} = this.state
+    const {videodata, onclicksavebutton} = this.state
     const {dispatch} = this.props
     console.log(videodata)
     dispatch(add(videodata))
+    this.setState({onclicksavebutton: !onclicksavebutton})
   }
 
   renderProductDetailsView = () => {
-    const {videodata, onclicklikebutton, onclickdislikebutton} = this.state
+    const {
+      videodata,
+      onclicklikebutton,
+      onclickdislikebutton,
+      onclicksavebutton,
+    } = this.state
     const {
       title,
       thumbnailurl,
@@ -171,13 +178,17 @@ class VideoItemDetails extends Component {
               />
               <h4 className="centers1234556">Dislike</h4>
             </div>
-            <div className="centers123">
+            <div
+              className={onclicksavebutton ? 'bluecolordiv' : 'blackcolordiv'}
+            >
               <BiListPlus
                 className="centers12345"
                 size={30}
                 onClick={this.addtovideo}
               />
-              <h4 className="centers1234556">Save</h4>
+              <h4 className="centers1234556">
+                {onclicksavebutton ? 'Saved' : 'Save'}
+              </h4>
             </div>
           </div>
         </div>
@@ -219,7 +230,7 @@ class VideoItemDetails extends Component {
         <Header />
         <div className="tophomecontainer">
           <div className="home-section-small-size">
-            <h1>small size</h1>
+            {this.renderProductDetails()}
           </div>
 
           <div className="home-section-medium-size">
@@ -243,7 +254,7 @@ class VideoItemDetails extends Component {
                     <h3 className="margintop">Gaming</h3>
                   </div>
                 </Link>
-                <Link to="/savedviideos" className="links">
+                <Link to="/savedvideos" className="links">
                   <div className="links1">
                     <FaSave className="homeicon" />
                     <h3 className="margintop">Saved Videos</h3>

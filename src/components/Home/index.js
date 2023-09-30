@@ -2,12 +2,17 @@ import {Component} from 'react'
 import {Redirect, Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-import {AiFillHome} from 'react-icons/ai'
-import {FaHotjar, FaSave} from 'react-icons/fa'
+import {
+  AiFillHome,
+  AiFillInstagram,
+  AiFillTwitterCircle,
+  AiFillLinkedin,
+} from 'react-icons/ai'
+import {FaHotjar, FaSave, FaFacebook} from 'react-icons/fa'
 import {SiYoutubegaming} from 'react-icons/si'
+import {FcSearch} from 'react-icons/fc'
 import {ImCross} from 'react-icons/im'
 
-import ReactIcons from '../ReactIcons'
 import Header from '../Header'
 
 import Individualcard from '../Individualcard'
@@ -141,7 +146,7 @@ class Home extends Component {
               className="backgrrrr"
               onClick={this.clickinglabel}
             >
-              <ReactIcons />
+              <FcSearch />
             </label>
           </div>
           {videosList.map(eachvideo => (
@@ -170,7 +175,7 @@ class Home extends Component {
                   <h3 className="margintop">Gaming</h3>
                 </div>
               </Link>
-              <Link to="/savedviideos" className="links">
+              <Link to="/savedvideos" className="links">
                 <div className="links1">
                   <FaSave className="homeicon" />
                   <h3 className="margintop">Saved Videos</h3>
@@ -180,6 +185,13 @@ class Home extends Component {
 
             <div>
               <h3>CONTACT US</h3>
+              <div>
+                <FaFacebook size={30} className="marginss1" />
+                <AiFillInstagram size={30} className="marginss2" />
+                <AiFillTwitterCircle size={30} className="marginss3" />
+                <AiFillLinkedin size={30} className="marginss4" />
+              </div>
+              <h3>Enjoy! Now To See Your Channels and Recommendations</h3>
             </div>
           </div>
 
@@ -217,7 +229,7 @@ class Home extends Component {
                 className="backgrrrr"
                 onClick={this.clickinglabel}
               >
-                <ReactIcons />
+                <FcSearch />
               </label>
             </div>
             <div className="alignment2">

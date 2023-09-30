@@ -21,7 +21,7 @@ const App = () => (
         <ProtectedRoute exact path="/videos/:id" component={VideoItemDetails} />
         <ProtectedRoute exact path="/trending" component={Trending} />
         <ProtectedRoute exact path="/gaming" component={Gaming} />
-        <ProtectedRoute exact path="/savedviideos" component={SavedVideos} />
+        <ProtectedRoute exact path="/savedvideos" component={SavedVideos} />
       </Switch>
     </Provider>
   </BrowserRouter>

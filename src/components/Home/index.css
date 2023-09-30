@@ -96,6 +96,22 @@
   .margintop {
     margin-top: 24px;
   }
+  .marginss1 {
+    margin-right: 7px;
+    color: #4267b2;
+  }
+  .marginss2 {
+    margin-right: 7px;
+    color: #dd2a7b;
+  }
+  .marginss3 {
+    margin-right: 7px;
+    color: #00acee;
+  }
+  .marginss4 {
+    margin-right: 7px;
+    color: #0072b1;
+  }
 }
 .searchinh {
   display: flex;

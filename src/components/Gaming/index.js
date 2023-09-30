@@ -2,8 +2,13 @@ import {Component} from 'react'
 import {Redirect, Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-import {AiFillHome} from 'react-icons/ai'
-import {FaHotjar, FaSave} from 'react-icons/fa'
+import {
+  AiFillHome,
+  AiFillInstagram,
+  AiFillTwitterCircle,
+  AiFillLinkedin,
+} from 'react-icons/ai'
+import {FaHotjar, FaSave, FaFacebook} from 'react-icons/fa'
 import {SiYoutubegaming} from 'react-icons/si'
 
 import Header from '../Header'
@@ -85,59 +90,10 @@ class Gaming extends Component {
   renderTrendingVideosview = () => {
     const {gaminglist} = this.state
     return (
-      <div className="tophomecontainer">
-        <Header />
-        <div className="home-section-small-size">
-          {gaminglist.map(eachvideo => (
-            <IndividualForGaming key={eachvideo.id} eachdetail={eachvideo} />
-          ))}
-        </div>
-
-        <div className="home-section-medium-size">
-          <div className="left-side-home-contaier1">
-            <div>
-              <Link to="/" className="links">
-                <div className="links1">
-                  <AiFillHome className="homeicon" />
-                  <h3>Home</h3>
-                </div>
-              </Link>
-              <Link to="/trending" className="links">
-                <div className="links1">
-                  <FaHotjar className="homeicon" />
-                  <h3>Trending</h3>
-                </div>
-              </Link>
-              <Link to="/gaming" className="links">
-                <div className="links12">
-                  <SiYoutubegaming className="homeiconred" />
-                  <h3>Gaming</h3>
-                </div>
-              </Link>
-              <Link to="/savedviideos" className="links">
-                <div className="links1">
-                  <FaSave className="homeicon" />
-                  <h3>Saved Videos</h3>
-                </div>
-              </Link>
-            </div>
-
-            <div>
-              <h3>CONTACT US</h3>
-            </div>
-          </div>
-
-          <div className="right-side-home-contaier1">
-            <div className="alignment123">
-              {gaminglist.map(eachvideo => (
-                <IndividualForGaming
-                  key={eachvideo.id}
-                  eachdetail={eachvideo}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
+      <div className="alignment123">
+        {gaminglist.map(eachvideo => (
+          <IndividualForGaming key={eachvideo.id} eachdetail={eachvideo} />
+        ))}
       </div>
     )
   }
@@ -158,15 +114,69 @@ class Gaming extends Component {
   }
 
   render() {
-    const {videosList} = this.state
+    const {videosList, gaminglist} = this.state
     const jwtToken = Cookies.get('jwt_token')
     if (jwtToken === undefined) {
       return <Redirect to="/login" />
     }
     console.log(videosList)
-
     return (
-      <div className="all-products-section">{this.getalltrendingvideos()}</div>
+      <div>
+        <Header />
+        <div className="tophomecontainer">
+          <div className="home-section-small-size">
+            {gaminglist.map(eachvideo => (
+              <IndividualForGaming key={eachvideo.id} eachdetail={eachvideo} />
+            ))}
+          </div>
+
+          <div className="home-section-medium-size">
+            <div className="left-side-home-contaier">
+              <div>
+                <Link to="/" className="links">
+                  <div className="links1">
+                    <AiFillHome className="homeicon" />
+                    <h3 className="margintop">Home</h3>
+                  </div>
+                </Link>
+                <Link to="/trending" className="links">
+                  <div className="links1">
+                    <FaHotjar className="homeicon" />
+                    <h3 className="margintop">Trending</h3>
+                  </div>
+                </Link>
+                <Link to="/gaming" className="links">
+                  <div className="links12">
+                    <SiYoutubegaming className="homeiconred" />
+                    <h3 className="margintop">Gaming</h3>
+                  </div>
+                </Link>
+                <Link to="/savedvideos" className="links">
+                  <div className="links1">
+                    <FaSave className="homeicon" />
+                    <h3 className="margintop">Saved Videos</h3>
+                  </div>
+                </Link>
+              </div>
+
+              <div>
+                <h3>CONTACT US</h3>
+                <div>
+                  <FaFacebook size={30} className="marginss1" />
+                  <AiFillInstagram size={30} className="marginss2" />
+                  <AiFillTwitterCircle size={30} className="marginss3" />
+                  <AiFillLinkedin size={30} className="marginss4" />
+                </div>
+                <h3>Enjoy! Now To See Your Channels and Recommendations</h3>
+              </div>
+            </div>
+
+            <div className="right-side-home-contaier">
+              {this.getalltrendingvideos()}
+            </div>
+          </div>
+        </div>
+      </div>
     )
   }
 }
