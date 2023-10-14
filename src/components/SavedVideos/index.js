@@ -19,7 +19,7 @@ const SavedVideos = () => {
   const condition = savedvideos.length > 0
   console.log(condition)
   return condition ? (
-    <div>
+    <div data-testid="savedVideos">
       <Header />
       <div className="tophomecontainer">
         <div className="home-section-small-size">

@@ -1,5 +1,6 @@
 import {MdDelete} from 'react-icons/md'
 import {useDispatch} from 'react-redux'
+import {Link} from 'react-router-dom'
 import {deleteItem} from '../../store/savedvideoSlice'
 import './index.css'
 
@@ -16,11 +17,11 @@ const IndividualcardforSaved = props => {
   }
 
   return (
-    <div className="individualtrendingcard1">
+    <Link to={`/videos/${id}`} className="individualtrendingcard1">
       <img
         src={thumbnailurl}
         alt="video thumbnail"
-        className="individualtrendingcardimage1"
+        className="individualtrendingcardimage12"
       />
       <div className="titlecenter1123">
         <h2>{title}</h2>
@@ -38,7 +39,7 @@ const IndividualcardforSaved = props => {
           onClick={occlickDeleteButton}
         />
       </div>
-    </div>
+    </Link>
   )
 }
 

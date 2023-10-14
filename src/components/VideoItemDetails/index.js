@@ -226,7 +226,7 @@ class VideoItemDetails extends Component {
 
   render() {
     return (
-      <div>
+      <div data-testid="videoItemDetails">
         <Header />
         <div className="tophomecontainer">
           <div className="home-section-small-size">

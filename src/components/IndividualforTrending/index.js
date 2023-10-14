@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import './index.css'
 
 const IndividualforTrending = props => {
@@ -5,7 +6,7 @@ const IndividualforTrending = props => {
   const {title, thumbnailurl, channel, viewcount, publishedat, id} = eachdetail
   const {name, profileimageurl} = channel
   return (
-    <div className="individualtrendingcard1">
+    <Link to={`/videos/${id}`} className="individualtrendingcard1">
       <img
         src={thumbnailurl}
         alt="video thumbnail"
@@ -20,7 +21,7 @@ const IndividualforTrending = props => {
           <p> • {publishedat}</p>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 

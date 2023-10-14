@@ -4,20 +4,12 @@ import Cookies from 'js-cookie'
 import {connect} from 'react-redux'
 import {FaHotjar, FaSave, FaMoon} from 'react-icons/fa'
 import {SiYoutubegaming} from 'react-icons/si'
-import Popup from '../Popup'
+import Popups from '../Popups'
 import Overlay from '../Overlay'
 import './index.css'
 
 const Header = props => {
   const [isPopupOpen, setIsPopupOpen] = useState(false)
-
-  const onClickLogout = () => {
-    setIsPopupOpen(true)
-  }
-
-  const closePopup = () => {
-    setIsPopupOpen(false)
-  }
 
   return (
     <nav className="nav-header">
@@ -35,7 +27,6 @@ const Header = props => {
               src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-log-out-img.png"
               alt="nav logout"
               className="nav-bar-image"
-              onClick={onClickLogout}
             />
           </button>
         </div>
@@ -63,20 +54,9 @@ const Header = props => {
               />
             </li>
           </ul>
-          <button
-            type="button"
-            className="logout-desktop-btn"
-            onClick={onClickLogout}
-          >
-            Logout
+          <button type="button" className="logout-desktop-btn">
+            <Popups />
           </button>
-          {isPopupOpen && (
-            <Popup
-              title="Sample Popup"
-              message="This is a sample popup in React.js."
-              onClose={closePopup}
-            />
-          )}
         </div>
       </div>
       <div className="nav-menu-mobile">

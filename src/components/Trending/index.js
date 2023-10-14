@@ -128,7 +128,7 @@ class Trending extends Component {
 
   render() {
     return (
-      <div>
+      <div data-testid="trending">
         <Header />
         <div className="tophomecontainer">
           <div className="home-section-small-size">

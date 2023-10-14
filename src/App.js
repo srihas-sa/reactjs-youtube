@@ -1,5 +1,5 @@
 import {Provider} from 'react-redux'
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom'
 import Login from './components/Login'
 import ProtectedRoute from './components/ProtectedRoute'
 import VideoItemDetails from './components/VideoItemDetails'
@@ -8,8 +8,7 @@ import Trending from './components/Trending'
 import Gaming from './components/Gaming'
 import store from './store/store'
 import SavedVideos from './components/SavedVideos'
-
-import './App.css'
+import NotFound from './components/NotFound'
 
 // Replace your code here
 const App = () => (
@@ -22,6 +21,8 @@ const App = () => (
         <ProtectedRoute exact path="/trending" component={Trending} />
         <ProtectedRoute exact path="/gaming" component={Gaming} />
         <ProtectedRoute exact path="/savedvideos" component={SavedVideos} />
+        <Route path="/not-found" component={NotFound} />
+        <Redirect to="not-found" />
       </Switch>
     </Provider>
   </BrowserRouter>

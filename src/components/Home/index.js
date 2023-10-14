@@ -81,8 +81,8 @@ class Home extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="products-details-loader-container">
-      <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
+    <div className="loader-container" data-testid="loader">
+      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
   )
 
@@ -122,7 +122,7 @@ class Home extends Component {
     console.log(videosList)
 
     return (
-      <div className="tophomecontainer">
+      <div className="tophomecontainer" data-testid="home">
         <Header />
         <div className="home-section-small-size">
           <div className="background-color1">

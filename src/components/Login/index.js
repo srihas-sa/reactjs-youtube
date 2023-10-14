@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-
+import Popups from '../Popups'
 import './index.css'
 
 class Login extends Component {
@@ -8,7 +8,7 @@ class Login extends Component {
     username: '',
     password: '',
     showSubmitError: false,
-    errorMsg: '',
+    errorMsg: 'Username and Password did&apos;nt match',
     showpasword: true,
   }
 
@@ -65,19 +65,19 @@ class Login extends Component {
           <div className="imgdiv">
             <img
               src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-              alt="JOBBYAPPlogo"
+              alt="website logo"
               className="loginlogo"
             />
           </div>
           <label htmlFor="username">USERNAME</label> <br />
           <input
             type="text"
-            placeholder="Username:rahul"
+            placeholder="Username"
             className="inputUser"
             onChange={this.changingusername}
           />
           <br />
-          <label htmlFor="password">PASSWORD</label>
+          <label htmlFor="PASSWORD">PASSWORD</label>
           <br />
           <input
             type={showpasword ? 'text' : 'password'}
@@ -96,7 +96,7 @@ class Login extends Component {
           </div>
           <br />
           <button type="submit" className="loginbuttn">
-            Login
+            Log In
           </button>
           {showSubmitError && <p className="error-message">*{errorMsg}</p>}
         </form>

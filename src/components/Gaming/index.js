@@ -121,7 +121,7 @@ class Gaming extends Component {
     }
     console.log(videosList)
     return (
-      <div>
+      <div data-testid="trending">
         <Header />
         <div className="tophomecontainer">
           <div className="home-section-small-size">
