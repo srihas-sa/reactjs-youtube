@@ -10,6 +10,7 @@ import {BiListPlus} from 'react-icons/bi'
 import {connect} from 'react-redux'
 import {add} from '../../store/savedvideoSlice'
 import Header from '../Header'
+import VideoPlayer from '../VideoPlayer'
 
 import './index.css'
 
@@ -138,15 +139,12 @@ class VideoItemDetails extends Component {
       publishedat,
       description,
       id,
+      videourl,
     } = videodata
     const {profileimageurl, name, subscribercount} = channel
     return (
       <div className="individualdetailcard">
-        <img
-          src={thumbnailurl}
-          alt="video thumbnail"
-          className="individualdetailcardimage"
-        />
+        <VideoPlayer videourl={videourl} />
 
         <h3>{title}</h3>
 

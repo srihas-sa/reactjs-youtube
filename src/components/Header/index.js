@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import {FaHotjar, FaSave, FaMoon} from 'react-icons/fa'
 import {SiYoutubegaming} from 'react-icons/si'
 import Popups from '../Popups'
-import Overlay from '../Overlay'
+
 import './index.css'
 
 const Header = props => {
