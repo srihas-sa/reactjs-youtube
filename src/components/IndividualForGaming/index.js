@@ -9,9 +9,9 @@ const IndividualForGaming = props => {
       <img
         src={thumbnailurl}
         className="individualgamingimage"
-        alt="Gaming thumbnailurl"
+        alt="video thumbnail"
       />
-      <h2>{title}</h2>
+      <p>{title}</p>
       <p>{viewcount} World Wide Watching</p>
     </Link>
   )

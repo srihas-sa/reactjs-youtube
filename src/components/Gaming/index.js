@@ -68,7 +68,7 @@ class Gaming extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="products-details-loader-container">
+    <div className="products-details-loader-container" data-testid="loader">
       <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
     </div>
   )
@@ -160,18 +160,30 @@ class Gaming extends Component {
               </div>
 
               <div>
-                <h3>CONTACT US</h3>
+                <p>CONTACT US</p>
                 <div>
-                  <FaFacebook size={30} className="marginss1" />
-                  <AiFillInstagram size={30} className="marginss2" />
-                  <AiFillTwitterCircle size={30} className="marginss3" />
-                  <AiFillLinkedin size={30} className="marginss4" />
+                  <img
+                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
+                    className="marginss1"
+                    alt="facebook logo"
+                  />
+                  <img
+                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
+                    className="marginss1"
+                    alt="twitter logo"
+                  />
+                  <img
+                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
+                    className="marginss1"
+                    alt="linked in logo"
+                  />
                 </div>
-                <h3>Enjoy! Now To See Your Channels and Recommendations</h3>
+                <p>Enjoy! Now to see your channels and recommendations!</p>
               </div>
             </div>
 
             <div className="right-side-home-contaier">
+              <h1>Gaming</h1>
               {this.getalltrendingvideos()}
             </div>
           </div>

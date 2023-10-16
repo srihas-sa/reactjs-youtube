@@ -9,7 +9,7 @@ const Individualcard = props => {
     <Link to={`/videos/${id}`} className="individualcard">
       <img
         src={thumbnailurl}
-        alt="video thumbnail"
+        alt="video thumbnai"
         className="individualcardimage"
       />
       <div className="titlecenter123">
@@ -18,9 +18,9 @@ const Individualcard = props => {
           alt="channel logo"
           className="channellogoimage"
         />
-        <h2>{title}</h2>
+        <p>{title}</p>
       </div>
-      <h3 className="channelname">{name}</h3>
+      <p className="channelname">{name}</p>
       <div className="titlecenter">
         <p className="viewcount">{viewcount} Views</p>
         <p> • {publishedat}</p>

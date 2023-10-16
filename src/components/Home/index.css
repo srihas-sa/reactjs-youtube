@@ -98,6 +98,8 @@
   }
   .marginss1 {
     margin-right: 7px;
+    width: 30px;
+    height: 30px;
     color: #4267b2;
   }
   .marginss2 {
@@ -127,4 +129,22 @@
   margin-left: 1px;
   border-style: solid;
   border-width: 1px;
+}
+
+.novideosview {
+  width: 10px;
+  height: 10px;
+}
+
+.novideocontainer {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+}
+.retrybutton {
+  background-color: blue;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
 }

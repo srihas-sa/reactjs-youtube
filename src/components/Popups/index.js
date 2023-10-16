@@ -19,7 +19,7 @@ const Popups = props => {
             &times;
           </button>
           <div className="header"> Alert!!! </div>
-          <div className="content"> Are You Sure You Want to LogOut</div>
+          <div className="content"> Are you sure, you want to logout</div>
           <div className="actions">
             <button
               className="button2"

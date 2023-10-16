@@ -115,6 +115,7 @@ class Home extends Component {
 
   render() {
     const {videosList, onclicking} = this.state
+    const lengthgreaterthan = videosList.length > 0
     const jwtToken = Cookies.get('jwt_token')
     if (jwtToken === undefined) {
       return <Redirect to="/login" />
@@ -139,6 +140,7 @@ class Home extends Component {
               type="text"
               id="hello"
               placeholder="Search"
+              data-testid="searchButton"
               onChange={this.cickingSearch}
             />
             <label
@@ -184,14 +186,25 @@ class Home extends Component {
             </div>
 
             <div>
-              <h3>CONTACT US</h3>
+              <p>CONTACT US</p>
               <div>
-                <FaFacebook size={30} className="marginss1" />
-                <AiFillInstagram size={30} className="marginss2" />
-                <AiFillTwitterCircle size={30} className="marginss3" />
-                <AiFillLinkedin size={30} className="marginss4" />
+                <img
+                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
+                  className="marginss1"
+                  alt="facebook logo"
+                />
+                <img
+                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
+                  className="marginss1"
+                  alt="twitter logo"
+                />
+                <img
+                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
+                  className="marginss1"
+                  alt="linked in logo"
+                />
               </div>
-              <h3>Enjoy! Now To See Your Channels and Recommendations</h3>
+              <p>Enjoy! Now to see your channels and recommendations!</p>
             </div>
           </div>
 
@@ -206,7 +219,10 @@ class Home extends Component {
                     className="logoimage"
                     alt="website-logo"
                   />
-                  <ImCross onClick={this.Onclickingcrossmark} />
+                  <ImCross
+                    onClick={this.Onclickingcrossmark}
+                    data-testid="close"
+                  />
                 </div>
                 <h3>
                   Buy NxtWatch Premium prepaid plans with <br />
@@ -222,6 +238,7 @@ class Home extends Component {
                 type="text"
                 id="hello"
                 placeholder="Search"
+                data-testid="searchButton"
                 onChange={this.cickingSearch}
               />
               <label
@@ -234,9 +251,28 @@ class Home extends Component {
             </div>
             <div className="alignment2">
               <div className="alignment">
-                {videosList.map(eachvideo => (
-                  <Individualcard key={eachvideo.id} eachdetail={eachvideo} />
-                ))}
+                {lengthgreaterthan &&
+                  videosList.map(eachvideo => (
+                    <Individualcard key={eachvideo.id} eachdetail={eachvideo} />
+                  ))}
+
+                {!lengthgreaterthan && (
+                  <div className="novideocontainer">
+                    <div>
+                      <img
+                        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
+                        alt="no videos"
+                        className="novideosview"
+                      />
+                      <h1>No Search results found</h1>
+                      <p>Try different key words or remove search filter</p>
+                      <button type="button" className="retrybutton">
+                        {' '}
+                        Retry
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
